@@ -1,0 +1,119 @@
+{
+  "meta": {
+    "title": "Delever — restoran va yetkazib berish xizmatlari uchun CRM-platforma",
+    "description": "Savdo, yetkazib berish, kuryerlar va analitikani yagona Delever CRM-platformasida boshqaring. 7 davlatda 1000dan ortiq restoran."
+  },
+  "common": {
+    "openMenu": "Menyuni ochish",
+    "closeMenu": "Menyuni yopish",
+    "switchLanguage": "Tilni almashtirish"
+  },
+  "nav": {
+    "features": "Funksionallik",
+    "clients": "Mijozlar",
+    "geography": "Geografiya",
+    "contact": "Aloqa",
+    "cta": "Ariza qoldirish"
+  },
+  "hero": {
+    "badge": "Restoran va yetkazib berish uchun №1 CRM-platforma",
+    "title": "Yetkazib berishni 1 kunda avtomatlashtiring. Barcha buyurtmalarni bir joyda boshqaring.",
+    "subtitle": "Delever bilan kassa tizimi, oshxona, kuryerlar, barcha buyurtmalar va to'lov tizimlari bir joyda. Hoziroq ishga tushiring.",
+    "statBusinesses": "1000+ restoran",
+    "statCountries": "7 ta davlat",
+    "statOrders": "13 mln+ buyurtma",
+    "note": "Ariza qoldiring — menejerimiz 24 soat ichida siz bilan bog'lanadi"
+  },
+  "stats": {
+    "heading": "Delever raqamlarda",
+    "subheading": "Minglab restoran, kafe va fastfoodlar bizga ishonishadi",
+    "businessesValue": "1000+",
+    "businessesLabel": "restoran va tarmoqlar",
+    "countriesValue": "7",
+    "countriesLabel": "davlatda faoliyat",
+    "ordersValue": "13 mln+",
+    "ordersLabel": "qayta ishlangan buyurtmalar",
+    "integrationsValue": "40+",
+    "integrationsLabel": "tayyor integratsiyalar"
+  },
+  "clients": {
+    "heading": "Bizga ishonishadi",
+    "subheading": "1000dan ortiq restoran, kafe va umumiy ovqatlanish tarmoqlari har kuni Delever'dan foydalanadi",
+    "placeholderNote": "Mijozlar logotiplari kelishuvdan so'ng qo'shiladi"
+  },
+  "features": {
+    "heading": "Barcha funksionallik bitta tizimda",
+    "subheading": "Savdo kanallari, operatsiyalar, kuryerlar, CRM va analitika — Delever biznesingizning barcha jarayonlarini qamrab oladi",
+    "salesChannelsTitle": "Savdo kanallari",
+    "salesChannelsDesc": "Sayt, mobil ilova, agregatorlar va call-markazdan tushgan buyurtmalarni yagona panelda yig'ing",
+    "operationsTitle": "Operatsiyalar",
+    "operationsDesc": "Oshxona va zaldagi buyurtmalarni qabul qilish va qayta ishlashni real vaqtda avtomatlashtiring",
+    "courierTitle": "Kuryerlarni boshqarish",
+    "courierDesc": "Buyurtmalarni kuryerlar orasida taqsimlang, xaritada yetkazib berishni kuzating va muddatlarni nazorat qiling",
+    "crmTitle": "CRM",
+    "crmDesc": "Mijozlar bazasini, buyurtmalar tarixini, segmentatsiya va sodiqlik dasturlarini yuriting",
+    "analyticsTitle": "Analitika",
+    "analyticsDesc": "Daromad, o'rtacha chek va filiallar samaradorligini batafsil hisobotlarda kuzatib boring",
+    "highlightsIntegrations": "Agregatorlar, to'lov tizimlari va CRM bilan 40+ tayyor integratsiya",
+    "highlightsUptime": "Platformaning 99.9% uzluksiz ishlashi",
+    "highlightsSupport": "Barcha bosqichlarda 24/7 qo'llab-quvvatlash",
+    "highlightsLaunch": "Platformani atigi 1 kunda ishga tushirish"
+  },
+  "geography": {
+    "heading": "Faoliyat geografiyasi",
+    "subheading": "Delever 7 davlatda faoliyat yuritadi va kengaytirishda davom etmoqda",
+    "uzbekistan": "O'zbekiston",
+    "kazakhstan": "Qozog'iston",
+    "cyprus": "Kipr",
+    "georgia": "Gruziya",
+    "uae": "BAA",
+    "kyrgyzstan": "Qirg'iziston"
+  },
+  "form": {
+    "heading": "Konsultatsiya uchun ariza qoldiring",
+    "subheading": "Delever biznesingizni avtomatlashtirish uchun qanday yordam berishini aytib beramiz va shaxsiy taklif tayyorlaymiz",
+    "nameLabel": "Ism",
+    "namePlaceholder": "Ismingiz",
+    "phoneLabel": "Telefon raqami",
+    "phonePlaceholder": "+998 90 123 45 67",
+    "telegramLabel": "Telegram",
+    "telegramPlaceholder": "@username",
+    "restaurantLabel": "Brend nomi",
+    "restaurantPlaceholder": "Restoraningiz nomi",
+    "ordersLabel": "Kunlik buyurtmalar soni",
+    "ordersPlaceholder": "Diapazonni tanlang",
+    "ordersOption1": "10–30 buyurtma",
+    "ordersOption2": "30–50 buyurtma",
+    "ordersOption3": "50+ buyurtma",
+    "modulesLabel": "Hozir sizda qanday muammolar bor",
+    "moduleSalesChannels": "Telegram bot yoki sayt yo'q",
+    "moduleOperations": "Yandex va Uzum buyurtmalarni chek ko'rinishida hohlayman",
+    "moduleCourierManagement": "Kuryerlarni boshqarish",
+    "moduleCrm": "Buyurtma olishga ko'p vaqt ketadi",
+    "moduleAnalytics": "Analitika",
+    "submitButton": "Ariza yuborish",
+    "submitting": "Yuborilmoqda...",
+    "successTitle": "Ariza yuborildi!",
+    "successMessage": "Rahmat! Menejerimiz 24 soat ichida siz bilan bog'lanadi.",
+    "errorMessage": "Arizani yuborib bo'lmadi. Qaytadan urinib ko'ring yoki bizga Telegram orqali yozing.",
+    "privacyNote": "Formani yuborish orqali siz shaxsiy ma'lumotlarni qayta ishlashga rozilik bildirasiz",
+    "requiredError": "Majburiy maydon",
+    "minLengthError": "Qiymat juda qisqa",
+    "invalidPhoneError": "To'g'ri telefon raqamini kiriting",
+    "invalidTelegramError": "Telegram username kiriting, masalan @username",
+    "selectOrdersError": "Buyurtmalar sonini tanlang",
+    "selectModuleError": "Kamida bitta modulni tanlang",
+    "sendAnother": "Yana bitta ariza yuborish"
+  },
+  "ctaBottom": {
+    "heading": "Biznesingizni avtomatlashtirishga tayyormisiz?",
+    "subheading": "Ariza qoldiring — platformani demo rejimida ko'rsatamiz va mos tarifni tanlaymiz"
+  },
+  "footer": {
+    "description": "Delever — restoran biznesining savdo, yetkazib berish va analitikasini boshqarish uchun yagona CRM-platforma.",
+    "navHeading": "Navigatsiya",
+    "contactHeading": "Aloqa",
+    "contactCta": "Ariza qoldirish",
+    "rights": "Barcha huquqlar himoyalangan"
+  }
+}
