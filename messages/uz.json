@@ -17,11 +17,11 @@
   },
   "hero": {
     "badge": "Restoran va yetkazib berish uchun №1 CRM-platforma",
-    "title": "Yetkazib berishni 1 kunda avtomatlashtiring. Barcha buyurtmalarni bir joyda boshqaring.",
+    "title": "Restoraningizni bir tizim orqali boshqaring",
     "subtitle": "Delever bilan kassa tizimi, oshxona, kuryerlar, barcha buyurtmalar va to'lov tizimlari bir joyda. Hoziroq ishga tushiring.",
-    "statBusinesses": "1000+ restoran",
+    "statBusinesses": "1200+ restoran",
     "statCountries": "7 ta davlat",
-    "statOrders": "13 mln+ buyurtma",
+    "statOrders": "20 mln+ buyurtma",
     "note": "Ariza qoldiring — menejerimiz 24 soat ichida siz bilan bog'lanadi"
   },
   "stats": {
@@ -37,7 +37,7 @@
     "integrationsLabel": "tayyor integratsiyalar"
   },
   "clients": {
-    "heading": "Bizga ishonishadi",
+    "heading": "Bizning hamkorlarimiz",
     "subheading": "1000dan ortiq restoran, kafe va umumiy ovqatlanish tarmoqlari har kuni Delever'dan foydalanadi",
     "placeholderNote": "Mijozlar logotiplari kelishuvdan so'ng qo'shiladi"
   },
@@ -91,10 +91,11 @@
     "moduleCourierManagement": "Kuryerlarni boshqarish",
     "moduleCrm": "Buyurtma olishga ko'p vaqt ketadi",
     "moduleAnalytics": "Analitika",
+    "moduleOther": "Boshqa",
+    "otherPlaceholder": "Batafsil yozing",
+    "otherRequiredError": "Iltimos, batafsil yozing",
     "submitButton": "Ariza yuborish",
     "submitting": "Yuborilmoqda...",
-    "successTitle": "Ariza yuborildi!",
-    "successMessage": "Rahmat! Menejerimiz 24 soat ichida siz bilan bog'lanadi.",
     "errorMessage": "Arizani yuborib bo'lmadi. Qaytadan urinib ko'ring yoki bizga Telegram orqali yozing.",
     "privacyNote": "Formani yuborish orqali siz shaxsiy ma'lumotlarni qayta ishlashga rozilik bildirasiz",
     "requiredError": "Majburiy maydon",
@@ -102,12 +103,16 @@
     "invalidPhoneError": "To'g'ri telefon raqamini kiriting",
     "invalidTelegramError": "Telegram username kiriting, masalan @username",
     "selectOrdersError": "Buyurtmalar sonini tanlang",
-    "selectModuleError": "Kamida bitta modulni tanlang",
-    "sendAnother": "Yana bitta ariza yuborish"
+    "selectModuleError": "Kamida bitta modulni tanlang"
   },
   "ctaBottom": {
-    "heading": "Biznesingizni avtomatlashtirishga tayyormisiz?",
+    "heading": "Restoranni avtomatlashtirishga tayyormisiz?",
     "subheading": "Ariza qoldiring — platformani demo rejimida ko'rsatamiz va mos tarifni tanlaymiz"
+  },
+  "thankYou": {
+    "heading": "Arizangiz uchun rahmat!",
+    "message": "Menejerimiz tez orada siz bilan bog'lanadi. Iltimos, telefon qo'ng'irog'ini kuting.",
+    "backButton": "Bosh sahifaga qaytish"
   },
   "footer": {
     "description": "Delever — restoran biznesining savdo, yetkazib berish va analitikasini boshqarish uchun yagona CRM-platforma.",

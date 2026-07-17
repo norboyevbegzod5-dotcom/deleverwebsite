@@ -5,7 +5,6 @@ import ClientsSection from "@/components/ClientsSection";
 import FeaturesSection from "@/components/FeaturesSection";
 import WorldMap from "@/components/WorldMap";
 import CtaBottomSection from "@/components/CtaBottomSection";
-import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
@@ -19,7 +18,6 @@ export default function Home() {
         <WorldMap />
         <CtaBottomSection />
       </main>
-      <Footer />
     </div>
   );
 }

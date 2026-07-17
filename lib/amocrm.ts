@@ -19,11 +19,12 @@ const MODULE_LABEL: Record<LeadFormValues["modules"][number], string> = {
   courier_management: "Управление курьерами",
   crm: "CRM",
   analytics: "Аналитика",
+  other: "Другое",
 };
 
 function buildNoteText(lead: LeadFormValues): string {
   const modules = lead.modules.map((m) => MODULE_LABEL[m]).join(", ");
-  return [
+  const lines = [
     `Заявка с лендинга Delever (${lead.locale.toUpperCase()})`,
     `Имя: ${lead.name}`,
     `Телефон: ${lead.phone}`,
@@ -31,7 +32,11 @@ function buildNoteText(lead: LeadFormValues): string {
     `Заведение: ${lead.restaurantName}`,
     `Заказов в день: ${ORDERS_LABEL[lead.ordersPerDay]}`,
     `Интересующие модули: ${modules}`,
-  ].join("\n");
+  ];
+  if (lead.modules.includes("other") && lead.otherText) {
+    lines.push(`Другое (подробности): ${lead.otherText}`);
+  }
+  return lines.join("\n");
 }
 
 async function amoCrmFetch(subdomain: string, token: string, path: string, body: unknown) {

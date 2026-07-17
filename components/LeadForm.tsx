@@ -5,11 +5,15 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { useLocale, useTranslations } from "next-intl";
-import { CheckCircle2, Loader2 } from "lucide-react";
-import { leadSchema, moduleValues } from "@/lib/validation";
-import { modules, orderRangeOptions } from "@/lib/constants";
+import { Loader2 } from "lucide-react";
+import { leadObjectSchema, requireOtherText, moduleValues } from "@/lib/validation";
+import { orderRangeOptions } from "@/lib/constants";
+import { useRouter } from "@/i18n/navigation";
 
-const clientSchema = leadSchema.omit({ locale: true });
+const clientSchema = leadObjectSchema.omit({ locale: true }).refine(requireOtherText, {
+  message: "otherText required when 'other' is selected",
+  path: ["otherText"],
+});
 type FormValues = z.input<typeof clientSchema>;
 
 type Props = {
@@ -20,12 +24,14 @@ type Props = {
 export default function LeadForm({ idPrefix, variant = "light" }: Props) {
   const t = useTranslations("form");
   const locale = useLocale();
-  const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
+  const router = useRouter();
+  const [status, setStatus] = useState<"idle" | "submitting" | "error">("idle");
 
   const {
     register,
     handleSubmit,
     reset,
+    watch,
     formState: { errors },
   } = useForm<FormValues>({
     resolver: zodResolver(clientSchema),
@@ -35,9 +41,13 @@ export default function LeadForm({ idPrefix, variant = "light" }: Props) {
       telegram: "",
       restaurantName: "",
       modules: [],
+      otherText: "",
       website: "",
     },
   });
+
+  const selectedModules = watch("modules") ?? [];
+  const isOtherSelected = selectedModules.includes("other");
 
   const moduleTitleKey: Record<(typeof moduleValues)[number], string> = {
     sales_channels: "moduleSalesChannels",
@@ -45,6 +55,7 @@ export default function LeadForm({ idPrefix, variant = "light" }: Props) {
     courier_management: "moduleCourierManagement",
     crm: "moduleCrm",
     analytics: "moduleAnalytics",
+    other: "moduleOther",
   };
 
   const onSubmit = async (data: FormValues) => {
@@ -56,8 +67,8 @@ export default function LeadForm({ idPrefix, variant = "light" }: Props) {
         body: JSON.stringify({ ...data, locale }),
       });
       if (!res.ok) throw new Error("request_failed");
-      setStatus("success");
       reset();
+      router.push("/thank-you");
     } catch {
       setStatus("error");
     }
@@ -71,29 +82,6 @@ export default function LeadForm({ idPrefix, variant = "light" }: Props) {
       : "border-slate-300 bg-white text-slate-900 placeholder:text-slate-400 focus:border-primary"
   }`;
   const errorClass = "mt-1 text-xs text-red-400";
-
-  if (status === "success") {
-    return (
-      <div
-        className={`flex flex-col items-center gap-3 rounded-2xl p-8 text-center ${
-          isDark ? "bg-white/5" : "bg-emerald-50"
-        }`}
-      >
-        <CheckCircle2 className="h-10 w-10 text-emerald-500" />
-        <h3 className={`text-lg font-semibold ${isDark ? "text-white" : "text-slate-900"}`}>
-          {t("successTitle")}
-        </h3>
-        <p className={isDark ? "text-slate-300" : "text-slate-600"}>{t("successMessage")}</p>
-        <button
-          type="button"
-          onClick={() => setStatus("idle")}
-          className="mt-2 text-sm font-medium text-primary hover:underline"
-        >
-          {t("sendAnother")}
-        </button>
-      </div>
-    );
-  }
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} noValidate className="flex flex-col gap-4">
@@ -193,9 +181,9 @@ export default function LeadForm({ idPrefix, variant = "light" }: Props) {
       <div>
         <span className={`mb-1.5 block text-sm font-medium ${labelClass}`}>{t("modulesLabel")}</span>
         <div className="grid gap-2 sm:grid-cols-2">
-          {modules.map((m) => (
+          {moduleValues.map((id) => (
             <label
-              key={m.id}
+              key={id}
               className={`flex cursor-pointer items-center gap-2 rounded-lg border px-3 py-2 text-sm transition ${
                 isDark
                   ? "border-white/15 bg-white/5 text-slate-200 hover:border-primary"
@@ -204,15 +192,27 @@ export default function LeadForm({ idPrefix, variant = "light" }: Props) {
             >
               <input
                 type="checkbox"
-                value={m.id}
+                value={id}
                 className="h-4 w-4 shrink-0 accent-primary"
                 {...register("modules")}
               />
-              {t(moduleTitleKey[m.id])}
+              {t(moduleTitleKey[id])}
             </label>
           ))}
         </div>
         {errors.modules && <p className={errorClass}>{t("selectModuleError")}</p>}
+
+        {isOtherSelected && (
+          <div className="mt-3">
+            <input
+              type="text"
+              placeholder={t("otherPlaceholder")}
+              className={inputClass}
+              {...register("otherText")}
+            />
+            {errors.otherText && <p className={errorClass}>{t("otherRequiredError")}</p>}
+          </div>
+        )}
       </div>
 
       <button

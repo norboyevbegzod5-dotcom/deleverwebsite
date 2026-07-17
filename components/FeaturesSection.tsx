@@ -28,6 +28,13 @@ const HIGHLIGHT_ICONS: Record<(typeof highlights)[number], LucideIcon> = {
   highlightsLaunch: Rocket,
 };
 
+const SALES_CHANNEL_LOGOS = [
+  { src: "/channel-telegram.webp", alt: "Telegram" },
+  { src: "/channel-instagram.png", alt: "Instagram" },
+  { src: "/channel-yandex-eats.jpg", alt: "Yandex Eats" },
+  { src: "/channel-tezkor.png", alt: "Tezkor" },
+];
+
 export default function FeaturesSection() {
   const t = useTranslations("features");
 
@@ -52,6 +59,19 @@ export default function FeaturesSection() {
                 </span>
                 <h3 className="mt-4 text-lg font-semibold text-slate-900">{t(m.titleKey)}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-slate-600">{t(m.descKey)}</p>
+                {m.id === "sales_channels" && (
+                  <div className="mt-4 flex flex-wrap gap-2">
+                    {SALES_CHANNEL_LOGOS.map((logo) => (
+                      <span
+                        key={logo.src}
+                        className="flex h-9 w-9 items-center justify-center overflow-hidden rounded-full border border-slate-200"
+                      >
+                        {/* eslint-disable-next-line @next/next/no-img-element */}
+                        <img src={logo.src} alt={logo.alt} className="h-full w-full object-cover" />
+                      </span>
+                    ))}
+                  </div>
+                )}
               </div>
             );
           })}

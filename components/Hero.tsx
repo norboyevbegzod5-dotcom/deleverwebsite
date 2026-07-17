@@ -1,10 +1,22 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import { useTranslations } from "next-intl";
-import { Sparkles } from "lucide-react";
+import { Sparkles, X } from "lucide-react";
+import LeadForm from "./LeadForm";
 
 export default function Hero() {
   const t = useTranslations("hero");
+  const tForm = useTranslations("form");
+  const [isModalOpen, setModalOpen] = useState(false);
 
-  const stats = [t("statBusinesses"), t("statCountries"), t("statOrders")];
+  useEffect(() => {
+    if (!isModalOpen) return;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isModalOpen]);
 
   return (
     <section className="relative overflow-hidden bg-navy">
@@ -28,20 +40,13 @@ export default function Hero() {
             {t("title")}
           </h1>
 
-          <p className="mt-5 max-w-xl text-base leading-relaxed text-slate-300 sm:text-lg">
-            {t("subtitle")}
-          </p>
-
-          <div className="mt-8 flex flex-wrap gap-3">
-            {stats.map((s) => (
-              <span
-                key={s}
-                className="rounded-full border border-white/15 bg-white/5 px-4 py-1.5 text-sm font-semibold text-white"
-              >
-                {s}
-              </span>
-            ))}
-          </div>
+          <button
+            type="button"
+            onClick={() => setModalOpen(true)}
+            className="mt-8 inline-flex items-center justify-center rounded-lg bg-primary px-6 py-3 text-sm font-semibold text-white transition hover:bg-primary-dark"
+          >
+            {tForm("submitButton")}
+          </button>
 
           <p className="mt-6 text-sm text-slate-400">{t("note")}</p>
         </div>
@@ -57,6 +62,25 @@ export default function Hero() {
           />
         </div>
       </div>
+
+      {isModalOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center overflow-y-auto bg-slate-950/70 p-4">
+          <div className="relative w-full max-w-lg rounded-2xl bg-white p-6 shadow-2xl sm:p-8">
+            <button
+              type="button"
+              onClick={() => setModalOpen(false)}
+              aria-label="Close"
+              className="absolute right-4 top-4 flex h-8 w-8 items-center justify-center rounded-lg text-slate-400 transition hover:bg-slate-100 hover:text-slate-600"
+            >
+              <X className="h-5 w-5" />
+            </button>
+
+            <h2 className="pr-8 text-xl font-bold text-slate-900">{tForm("heading")}</h2>
+            <p className="mt-1.5 mb-6 text-sm text-slate-600">{tForm("subheading")}</p>
+            <LeadForm idPrefix="hero-modal" variant="light" />
+          </div>
+        </div>
+      )}
     </section>
   );
 }
