@@ -19,7 +19,9 @@ export const leadObjectSchema = z.object({
   telegram: z
     .string()
     .trim()
-    .regex(/^@?[a-zA-Z0-9_]{3,32}$/),
+    .regex(/^@?[a-zA-Z0-9_]{3,32}$/)
+    .optional()
+    .or(z.literal("")),
   restaurantName: z.string().trim().min(2).max(150),
   ordersPerDay: z.enum(orderRangeValues),
   modules: z.array(z.enum(moduleValues)).min(1),

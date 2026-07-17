@@ -28,11 +28,13 @@ function buildNoteText(lead: LeadFormValues): string {
     `Заявка с лендинга Delever (${lead.locale.toUpperCase()})`,
     `Имя: ${lead.name}`,
     `Телефон: ${lead.phone}`,
-    `Telegram: ${lead.telegram.startsWith("@") ? lead.telegram : `@${lead.telegram}`}`,
     `Заведение: ${lead.restaurantName}`,
     `Заказов в день: ${ORDERS_LABEL[lead.ordersPerDay]}`,
     `Интересующие модули: ${modules}`,
   ];
+  if (lead.telegram) {
+    lines.splice(3, 0, `Telegram: ${lead.telegram.startsWith("@") ? lead.telegram : `@${lead.telegram}`}`);
+  }
   if (lead.modules.includes("other") && lead.otherText) {
     lines.push(`Другое (подробности): ${lead.otherText}`);
   }

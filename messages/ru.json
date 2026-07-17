@@ -76,7 +76,7 @@
     "namePlaceholder": "Ваше имя",
     "phoneLabel": "Номер телефона",
     "phonePlaceholder": "+998 90 123 45 67",
-    "telegramLabel": "Telegram",
+    "telegramLabel": "Telegram (необязательно)",
     "telegramPlaceholder": "@username",
     "restaurantLabel": "Название заведения",
     "restaurantPlaceholder": "Название вашего ресторана",
