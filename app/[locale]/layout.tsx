@@ -5,6 +5,7 @@ import { getMessages, getTranslations } from "next-intl/server";
 import { hasLocale } from "next-intl";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
+import MetaPixel from "@/components/MetaPixel";
 import "./globals.css";
 
 const inter = Inter({
@@ -52,6 +53,7 @@ export default async function LocaleLayout({
       className={`${inter.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col font-sans">
+        <MetaPixel />
         <NextIntlClientProvider messages={messages}>
           {children}
         </NextIntlClientProvider>

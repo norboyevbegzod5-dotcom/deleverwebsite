@@ -9,6 +9,7 @@ import { Loader2 } from "lucide-react";
 import { leadObjectSchema, requireOtherText, moduleValues } from "@/lib/validation";
 import { orderRangeOptions } from "@/lib/constants";
 import { useRouter } from "@/i18n/navigation";
+import { trackLead } from "@/lib/metaPixel";
 
 const clientSchema = leadObjectSchema.omit({ locale: true }).refine(requireOtherText, {
   message: "otherText required when 'other' is selected",
@@ -67,6 +68,7 @@ export default function LeadForm({ idPrefix, variant = "light" }: Props) {
         body: JSON.stringify({ ...data, locale }),
       });
       if (!res.ok) throw new Error("request_failed");
+      trackLead();
       reset();
       router.push("/thank-you");
     } catch {
