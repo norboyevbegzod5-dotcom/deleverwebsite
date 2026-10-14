@@ -32,8 +32,8 @@ export default function LeadModal() {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-[60] flex items-center justify-center overflow-y-auto bg-black/75 p-4 backdrop-blur-sm">
-      <div className="relative w-full max-w-md rounded-3xl border border-white/10 bg-surface p-5 pt-8 shadow-2xl sm:p-7 sm:pt-9">
+    <div className="fixed inset-0 z-[60] flex items-start justify-center overflow-y-auto bg-black/75 p-3 backdrop-blur-sm sm:items-center sm:p-4">
+      <div className="relative w-full max-w-md rounded-3xl border border-white/10 bg-surface p-4 pt-6 shadow-2xl sm:p-7 sm:pt-9">
         <button
           type="button"
           onClick={() => setOpen(false)}
@@ -43,8 +43,8 @@ export default function LeadModal() {
           <X className="h-5 w-5" />
         </button>
 
-        <h2 className="px-8 text-center text-2xl font-bold text-white">{tForm("heading")}</h2>
-        <p className="mx-auto mt-2 mb-6 max-w-xs text-center text-sm text-slate-400">{tForm("subheading")}</p>
+        <h2 className="px-8 text-center text-xl font-bold text-white sm:text-2xl">{tForm("heading")}</h2>
+        <p className="mx-auto mt-1.5 mb-4 max-w-xs text-center text-sm text-slate-400 sm:mt-2 sm:mb-6">{tForm("subheading")}</p>
         <LeadForm idPrefix="lead-modal" />
       </div>
     </div>

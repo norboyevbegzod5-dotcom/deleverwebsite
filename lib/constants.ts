@@ -43,8 +43,44 @@ export const stats = [
   { valueKey: "integrationsValue", labelKey: "integrationsLabel" },
 ] as const;
 
+// Option lists for the step-by-step lead form. Values must match lib/validation.ts;
+// labels without a key are brand names shown as-is in every language.
+export const branchOptions = [
+  { value: "1", label: "1" },
+  { value: "2_3", label: "2–3" },
+  { value: "4_10", label: "4–10" },
+  { value: "over_10", label: "10+" },
+] as const;
+
+export const posOptions = [
+  { value: "iiko", label: "iiko" },
+  { value: "clopos", label: "Clopos" },
+  { value: "alisa", label: "Alisa" },
+  { value: "poster", label: "Poster" },
+  { value: "rkeeper", label: "R-Keeper" },
+  { value: "jowi", label: "Jowi" },
+  { value: "none", labelKey: "posNone" },
+] as const;
+
 export const orderRangeOptions = [
-  { value: "10_30", labelKey: "ordersOption1" },
-  { value: "30_50", labelKey: "ordersOption2" },
-  { value: "over_50", labelKey: "ordersOption3" },
+  { value: "1_20", label: "1–20" },
+  { value: "20_50", label: "20–50" },
+  { value: "50_100", label: "50–100" },
+  { value: "over_100", label: "100+" },
+] as const;
+
+export const aggregatorOptions = [
+  { value: "uzum_tezkor", label: "Uzum Tezkor" },
+  { value: "yandex", label: "Yandex" },
+  { value: "other", labelKey: "aggOther" },
+  { value: "none", labelKey: "aggNone" },
+] as const;
+
+export const problemOptions = [
+  { value: "sales_channels", labelKey: "moduleSalesChannels" },
+  { value: "operations", labelKey: "moduleOperations" },
+  { value: "courier_management", labelKey: "moduleCourierManagement" },
+  { value: "crm", labelKey: "moduleCrm" },
+  { value: "analytics", labelKey: "moduleAnalytics" },
+  { value: "other", labelKey: "moduleOther" },
 ] as const;

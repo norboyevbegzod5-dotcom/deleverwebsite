@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { leadSchema } from "@/lib/validation";
+import { leadSchema, isQualified } from "@/lib/validation";
 import { createAmoCrmLead, AmoCrmNotConfiguredError } from "@/lib/amocrm";
 
 export async function POST(req: NextRequest) {
@@ -16,6 +16,10 @@ export async function POST(req: NextRequest) {
       { ok: false, error: "validation_error", issues: parsed.error.flatten() },
       { status: 400 },
     );
+  }
+
+  if (!isQualified(parsed.data)) {
+    return NextResponse.json({ ok: false, error: "not_qualified" }, { status: 422 });
   }
 
   // Honeypot: bots that fill hidden fields get a fake success, no CRM call.
