@@ -1,5 +1,5 @@
 import Script from "next/script";
-import { META_PIXEL_ID } from "@/lib/metaPixel";
+import { META_PIXEL_IDS } from "@/lib/metaPixel";
 
 export default function MetaPixel() {
   return (
@@ -14,19 +14,22 @@ export default function MetaPixel() {
           t.src=v;s=b.getElementsByTagName(e)[0];
           s.parentNode.insertBefore(t,s)}(window, document,'script',
           'https://connect.facebook.net/en_US/fbevents.js');
-          fbq('init', '${META_PIXEL_ID}');
+          ${META_PIXEL_IDS.map((id) => `fbq('init', '${id}');`).join("\n")}
           fbq('track', 'PageView');
         `}
       </Script>
       <noscript>
-        {/* eslint-disable-next-line @next/next/no-img-element -- tracking pixel, next/image needs JS and won't render here */}
-        <img
-          height="1"
-          width="1"
-          style={{ display: "none" }}
-          src={`https://www.facebook.com/tr?id=${META_PIXEL_ID}&ev=PageView&noscript=1`}
-          alt=""
-        />
+        {META_PIXEL_IDS.map((id) => (
+          // eslint-disable-next-line @next/next/no-img-element -- tracking pixel, next/image needs JS and won't render here
+          <img
+            key={id}
+            height="1"
+            width="1"
+            style={{ display: "none" }}
+            src={`https://www.facebook.com/tr?id=${id}&ev=PageView&noscript=1`}
+            alt=""
+          />
+        ))}
       </noscript>
     </>
   );

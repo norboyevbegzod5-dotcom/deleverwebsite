@@ -1,11 +1,31 @@
 "use client";
 
+import { useEffect } from "react";
 import { useTranslations } from "next-intl";
 import { openLeadModal } from "./LeadModal";
+
+const AUTO_OPENED_KEY = "lead-modal-auto-opened";
 import TrustStrip from "./TrustStrip";
 
 export default function Hero() {
   const t = useTranslations("hero");
+
+  // Show the lead form right away on the first visit in this browser tab session;
+  // switching language or coming back to the home page doesn't pop it up again.
+  useEffect(() => {
+    try {
+      if (sessionStorage.getItem(AUTO_OPENED_KEY)) return;
+    } catch {
+      // Storage blocked (private mode): fall through and open once for this page load.
+    }
+    const timer = setTimeout(() => {
+      try {
+        sessionStorage.setItem(AUTO_OPENED_KEY, "1");
+      } catch {}
+      openLeadModal();
+    }, 300);
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
     <section className="relative overflow-hidden">

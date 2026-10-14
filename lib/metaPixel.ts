@@ -1,4 +1,5 @@
-export const META_PIXEL_ID = "1652772945793686";
+// Every pixel listed here gets PageView and Lead events.
+export const META_PIXEL_IDS = ["1652772945793686", "1291065949784226"];
 
 declare global {
   interface Window {

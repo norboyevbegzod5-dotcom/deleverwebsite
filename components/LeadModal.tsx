@@ -24,15 +24,28 @@ export default function LeadModal() {
   useEffect(() => {
     if (!isOpen) return;
     document.body.style.overflow = "hidden";
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setOpen(false);
+    };
+    window.addEventListener("keydown", onKeyDown);
     return () => {
       document.body.style.overflow = "";
+      window.removeEventListener("keydown", onKeyDown);
     };
   }, [isOpen]);
 
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-[60] flex items-start justify-center overflow-y-auto bg-black/75 p-3 backdrop-blur-sm sm:items-center sm:p-4">
+    <div
+      role="dialog"
+      aria-modal="true"
+      onMouseDown={(e) => {
+        // Close only on a click on the dimmed backdrop itself, not inside the card.
+        if (e.target === e.currentTarget) setOpen(false);
+      }}
+      className="fixed inset-0 z-[60] flex items-start justify-center overflow-y-auto bg-black/75 p-3 backdrop-blur-sm sm:items-center sm:p-4"
+    >
       <div className="relative w-full max-w-md rounded-3xl border border-white/10 bg-surface p-4 pt-6 shadow-2xl sm:p-7 sm:pt-9">
         <button
           type="button"
