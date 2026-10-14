@@ -1,6 +1,7 @@
 import { getTranslations } from "next-intl/server";
 import { CheckCircle2 } from "lucide-react";
 import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 import { Link } from "@/i18n/navigation";
 
 export default async function ThankYouPage() {
@@ -9,19 +10,17 @@ export default async function ThankYouPage() {
   return (
     <div className="flex min-h-screen flex-col">
       <Header />
-      <main className="flex flex-1 items-center justify-center bg-slate-50 px-4 py-16">
-        <div className="flex max-w-md flex-col items-center gap-3 rounded-2xl bg-white p-8 text-center shadow-sm">
-          <CheckCircle2 className="h-12 w-12 text-emerald-500" />
-          <h1 className="text-2xl font-bold text-slate-900">{t("heading")}</h1>
-          <p className="text-slate-600">{t("message")}</p>
-          <Link
-            href="/"
-            className="mt-4 inline-flex items-center justify-center rounded-lg bg-primary px-6 py-3 text-sm font-semibold text-white transition hover:bg-primary-dark"
-          >
+      <main className="flex flex-1 items-center justify-center px-4 py-16">
+        <div className="flex max-w-md flex-col items-center gap-3 rounded-3xl border border-white/5 bg-surface p-8 text-center">
+          <CheckCircle2 className="h-12 w-12 text-primary" />
+          <h1 className="text-2xl font-bold text-white">{t("heading")}</h1>
+          <p className="text-slate-400">{t("message")}</p>
+          <Link href="/" className="btn-primary mt-4 px-6 py-3 text-sm">
             {t("backButton")}
           </Link>
         </div>
       </main>
+      <Footer />
     </div>
   );
 }

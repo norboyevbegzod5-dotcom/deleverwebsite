@@ -2,15 +2,17 @@
 
 import { useState } from "react";
 import { useTranslations } from "next-intl";
-import { Menu, X, Layers } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import LanguageSwitcher from "./LanguageSwitcher";
+import Logo from "./Logo";
+import LeadModal, { openLeadModal } from "./LeadModal";
 import { Link } from "@/i18n/navigation";
 
 const navLinks = [
   { href: "/#features", key: "features" },
-  { href: "/#clients", key: "clients" },
+  { href: "/#process", key: "process" },
   { href: "/#geography", key: "geography" },
-  { href: "/#cta-bottom", key: "contact" },
+  { href: "/#faq", key: "faq" },
 ] as const;
 
 export default function Header() {
@@ -19,73 +21,73 @@ export default function Header() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-slate-200 bg-white/90 backdrop-blur">
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
-        <Link href="/" className="flex items-center gap-2 text-lg font-bold text-slate-900">
-          <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-white">
-            <Layers className="h-4.5 w-4.5" />
-          </span>
-          Delever
-        </Link>
-
-        <nav className="hidden items-center gap-8 lg:flex">
-          {navLinks.map((link) => (
-            <Link
-              key={link.key}
-              href={link.href}
-              className="text-sm font-medium text-slate-600 transition hover:text-primary"
-            >
-              {t(link.key)}
-            </Link>
-          ))}
-        </nav>
-
-        <div className="hidden items-center gap-4 lg:flex">
-          <LanguageSwitcher />
-          <Link
-            href="/#cta-bottom"
-            className="rounded-lg bg-primary px-4 py-2 text-sm font-semibold text-white transition hover:bg-primary-dark"
-          >
-            {t("cta")}
+    <>
+      <header className="sticky top-0 z-50 border-b border-white/5 bg-background/85 backdrop-blur">
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3.5 sm:px-6 lg:px-8">
+          <Link href="/" aria-label="Delever">
+            <Logo />
           </Link>
-        </div>
 
-        <button
-          type="button"
-          onClick={() => setOpen((v) => !v)}
-          aria-label={open ? tc("closeMenu") : tc("openMenu")}
-          className="flex h-10 w-10 items-center justify-center rounded-lg border border-slate-200 lg:hidden"
-        >
-          {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-        </button>
-      </div>
-
-      {open && (
-        <div className="border-t border-slate-200 bg-white px-4 py-4 lg:hidden">
-          <nav className="flex flex-col gap-4">
+          <nav className="hidden items-center gap-8 lg:flex">
             {navLinks.map((link) => (
               <Link
                 key={link.key}
                 href={link.href}
-                onClick={() => setOpen(false)}
-                className="text-sm font-medium text-slate-700"
+                className="text-sm font-medium text-slate-300 transition hover:text-white"
               >
                 {t(link.key)}
               </Link>
             ))}
           </nav>
-          <div className="mt-4 flex items-center justify-between gap-4">
+
+          <div className="hidden items-center gap-4 lg:flex">
             <LanguageSwitcher />
-            <Link
-              href="/#cta-bottom"
-              onClick={() => setOpen(false)}
-              className="flex-1 rounded-lg bg-primary px-4 py-2 text-center text-sm font-semibold text-white"
-            >
+            <button type="button" onClick={openLeadModal} className="btn-primary px-5 py-2.5 text-sm">
               {t("cta")}
-            </Link>
+            </button>
+          </div>
+
+          <div className="flex items-center gap-2 lg:hidden">
+            <LanguageSwitcher />
+            <button
+              type="button"
+              onClick={() => setOpen((v) => !v)}
+              aria-label={open ? tc("closeMenu") : tc("openMenu")}
+              className="flex h-10 w-10 items-center justify-center rounded-lg border border-white/10 text-white"
+            >
+              {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+            </button>
           </div>
         </div>
-      )}
-    </header>
+
+        {open && (
+          <div className="border-t border-white/5 bg-background px-4 py-4 lg:hidden">
+            <nav className="flex flex-col gap-4">
+              {navLinks.map((link) => (
+                <Link
+                  key={link.key}
+                  href={link.href}
+                  onClick={() => setOpen(false)}
+                  className="text-sm font-medium text-slate-200"
+                >
+                  {t(link.key)}
+                </Link>
+              ))}
+            </nav>
+            <button
+              type="button"
+              onClick={() => {
+                setOpen(false);
+                openLeadModal();
+              }}
+              className="btn-primary mt-4 w-full px-4 py-2.5 text-sm"
+            >
+              {t("cta")}
+            </button>
+          </div>
+        )}
+      </header>
+      <LeadModal />
+    </>
   );
 }

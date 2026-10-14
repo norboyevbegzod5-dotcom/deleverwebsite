@@ -12,14 +12,15 @@ export default function WorldMap() {
   const [hovered, setHovered] = useState<string | null>(null);
 
   return (
-    <section id="geography" className="scroll-mt-20 bg-navy py-16 sm:py-20">
+    <section id="geography" className="scroll-mt-20 py-20 sm:py-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
-          <h2 className="text-2xl font-bold text-white sm:text-3xl">{t("heading")}</h2>
-          <p className="mt-3 text-slate-300">{t("subheading")}</p>
+          <p className="eyebrow">{t("eyebrow")}</p>
+          <h2 className="mt-4 text-3xl font-bold tracking-tight text-white sm:text-5xl">{t("heading")}</h2>
+          <p className="mt-5 text-slate-400">{t("subheading")}</p>
         </div>
 
-        <div className="relative mt-10 overflow-hidden rounded-2xl border border-white/10 bg-white/5">
+        <div className="relative mt-10 overflow-hidden rounded-3xl border border-white/5 bg-surface">
           <ComposableMap
             projection="geoMercator"
             projectionConfig={{ center: [58, 35], scale: 500 }}
@@ -33,12 +34,12 @@ export default function WorldMap() {
                     <Geography
                       key={geo.rsmKey}
                       geography={geo}
-                      fill={active ? "#2563eb" : "#1e293b"}
-                      stroke="#0b1220"
+                      fill={active ? "#498ef9" : "#0a3553"}
+                      stroke="#001c2f"
                       strokeWidth={0.5}
                       style={{
                         default: { outline: "none" },
-                        hover: { outline: "none", fill: active ? "#3b82f6" : "#1e293b" },
+                        hover: { outline: "none", fill: active ? "#2fdd8c" : "#0a3553" },
                         pressed: { outline: "none" },
                       }}
                     />
@@ -54,14 +55,14 @@ export default function WorldMap() {
                 onMouseEnter={() => setHovered(c.nameKey)}
                 onMouseLeave={() => setHovered(null)}
               >
-                <circle r={5} fill="#2563eb" opacity={0.5} className="animate-ping" />
-                <circle r={4} fill="#fff" stroke="#2563eb" strokeWidth={2} className="cursor-pointer" />
+                <circle r={5} fill="#2fdd8c" opacity={0.5} className="animate-ping" />
+                <circle r={4} fill="#2fdd8c" stroke="#001c2f" strokeWidth={2} className="cursor-pointer" />
               </Marker>
             ))}
           </ComposableMap>
 
           {hovered && (
-            <div className="pointer-events-none absolute left-1/2 top-4 -translate-x-1/2 rounded-lg bg-white px-3 py-1.5 text-sm font-semibold text-slate-900 shadow-lg">
+            <div className="pointer-events-none absolute left-1/2 top-4 -translate-x-1/2 rounded-lg bg-primary px-3 py-1.5 text-sm font-semibold text-navy shadow-lg">
               {t(hovered)}
             </div>
           )}
@@ -71,7 +72,7 @@ export default function WorldMap() {
           {countries.map((c) => (
             <span
               key={c.id}
-              className="rounded-full border border-white/15 bg-white/5 px-4 py-1.5 text-sm font-medium text-white"
+              className="rounded-full border border-white/10 bg-surface px-4 py-1.5 text-sm font-medium text-slate-200"
             >
               {t(c.nameKey)}
             </span>

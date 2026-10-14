@@ -11,7 +11,7 @@ import {
   Rocket,
   type LucideIcon,
 } from "lucide-react";
-import { modules, highlights } from "@/lib/constants";
+import { modules, highlights, stats } from "@/lib/constants";
 
 const MODULE_ICONS: Record<(typeof modules)[number]["id"], LucideIcon> = {
   sales_channels: ShoppingCart,
@@ -28,68 +28,67 @@ const HIGHLIGHT_ICONS: Record<(typeof highlights)[number], LucideIcon> = {
   highlightsLaunch: Rocket,
 };
 
-const SALES_CHANNEL_LOGOS = [
-  { src: "/channel-telegram.webp", alt: "Telegram" },
-  { src: "/channel-instagram.png", alt: "Instagram" },
-  { src: "/channel-yandex-eats.jpg", alt: "Yandex Eats" },
-  { src: "/channel-tezkor.png", alt: "Tezkor" },
-];
-
 export default function FeaturesSection() {
   const t = useTranslations("features");
+  const ts = useTranslations("stats");
 
   return (
-    <section id="features" className="scroll-mt-20 bg-white py-16 sm:py-20">
+    <section id="features" className="scroll-mt-20 py-20 sm:py-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-2xl text-center">
-          <h2 className="text-2xl font-bold text-slate-900 sm:text-3xl">{t("heading")}</h2>
-          <p className="mt-3 text-slate-600">{t("subheading")}</p>
+        <div className="grid gap-10 lg:grid-cols-2 lg:items-end">
+          <div>
+            <p className="eyebrow">{t("eyebrow")}</p>
+            <h2 className="mt-4 text-3xl font-bold leading-tight tracking-tight text-white sm:text-5xl">
+              {t("heading")}
+            </h2>
+            <p className="mt-5 max-w-xl text-slate-400">{t("subheading")}</p>
+          </div>
+
+          <dl className="grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-white/5 bg-white/5">
+            {stats.map((s) => (
+              <div key={s.valueKey} className="bg-background p-5">
+                <dt className="sr-only">{ts(s.labelKey)}</dt>
+                <dd className="text-gradient text-3xl font-bold sm:text-4xl">{ts(s.valueKey)}</dd>
+                <dd className="mt-1 text-sm text-slate-400">{ts(s.labelKey)}</dd>
+              </div>
+            ))}
+          </dl>
         </div>
 
-        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {modules.map((m) => {
+        <div className="mt-14 grid gap-5 md:grid-cols-2">
+          {modules.map((m, i) => {
             const Icon = MODULE_ICONS[m.id];
+            const wide = i === modules.length - 1;
             return (
               <div
                 key={m.id}
-                className="rounded-2xl border border-slate-200 p-6 transition hover:border-primary/40 hover:shadow-md"
+                className={`group flex flex-col justify-between gap-10 rounded-3xl border border-white/5 bg-surface p-7 transition hover:border-primary/30 sm:p-9 ${
+                  wide ? "md:col-span-2 md:flex-row md:items-center" : ""
+                }`}
               >
-                <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-primary/10 text-primary">
-                  <Icon className="h-5.5 w-5.5" />
+                <div className="max-w-md">
+                  <h3 className="text-2xl font-bold tracking-tight text-white">{t(m.titleKey)}</h3>
+                  <p className="mt-3 leading-relaxed text-slate-400">{t(m.descKey)}</p>
+                </div>
+                <span className="flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl bg-primary/10 text-primary transition group-hover:bg-brand-gradient group-hover:text-navy">
+                  <Icon className="h-7 w-7" />
                 </span>
-                <h3 className="mt-4 text-lg font-semibold text-slate-900">{t(m.titleKey)}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-slate-600">{t(m.descKey)}</p>
-                {m.id === "sales_channels" && (
-                  <div className="mt-4 flex flex-wrap gap-2">
-                    {SALES_CHANNEL_LOGOS.map((logo) => (
-                      <span
-                        key={logo.src}
-                        className="flex h-9 w-9 items-center justify-center overflow-hidden rounded-full border border-slate-200"
-                      >
-                        {/* eslint-disable-next-line @next/next/no-img-element */}
-                        <img src={logo.src} alt={logo.alt} className="h-full w-full object-cover" />
-                      </span>
-                    ))}
-                  </div>
-                )}
               </div>
             );
           })}
         </div>
 
-        <div className="mt-10 grid gap-4 rounded-2xl bg-slate-50 p-6 sm:grid-cols-2 sm:p-8 lg:grid-cols-4">
+        <ul className="mt-5 grid gap-4 rounded-3xl border border-white/5 bg-surface p-6 sm:grid-cols-2 sm:p-8 lg:grid-cols-4">
           {highlights.map((key) => {
             const Icon = HIGHLIGHT_ICONS[key];
             return (
-              <div key={key} className="flex items-center gap-3">
-                <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-white text-primary shadow-sm">
-                  <Icon className="h-4.5 w-4.5" />
-                </span>
-                <p className="text-sm font-medium text-slate-700">{t(key)}</p>
-              </div>
+              <li key={key} className="flex items-start gap-3">
+                <Icon className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
+                <p className="text-sm text-slate-300">{t(key)}</p>
+              </li>
             );
           })}
-        </div>
+        </ul>
       </div>
     </section>
   );

@@ -1,10 +1,10 @@
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
-import StatsSection from "@/components/StatsSection";
-import ClientsSection from "@/components/ClientsSection";
 import FeaturesSection from "@/components/FeaturesSection";
+import ProcessSection from "@/components/ProcessSection";
 import WorldMap from "@/components/WorldMap";
-import CtaBottomSection from "@/components/CtaBottomSection";
+import FaqSection from "@/components/FaqSection";
+import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
@@ -12,12 +12,12 @@ export default function Home() {
       <Header />
       <main className="flex-1">
         <Hero />
-        <StatsSection />
-        <ClientsSection />
         <FeaturesSection />
+        <ProcessSection />
         <WorldMap />
-        <CtaBottomSection />
+        <FaqSection />
       </main>
+      <Footer />
     </div>
   );
 }

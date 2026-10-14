@@ -13,16 +13,20 @@
     "clients": "Mijozlar",
     "geography": "Geografiya",
     "contact": "Aloqa",
-    "cta": "Ariza qoldirish"
+    "cta": "Ariza qoldirish",
+    "process": "Joriy etish",
+    "faq": "Savollar"
   },
   "hero": {
-    "badge": "Restoran va yetkazib berish uchun №1 CRM-platforma",
+    "badge": "Restoran va yetkazib berish uchun barcha online yechimlar platformasi",
     "title": "Restoraningizni bir tizim orqali boshqaring",
     "subtitle": "Delever bilan kassa tizimi, oshxona, kuryerlar, barcha buyurtmalar va to'lov tizimlari bir joyda. Hoziroq ishga tushiring.",
     "statBusinesses": "1200+ restoran",
     "statCountries": "7 ta davlat",
     "statOrders": "20 mln+ buyurtma",
-    "note": "Ariza qoldiring — menejerimiz 24 soat ichida siz bilan bog'lanadi"
+    "note": "Ariza qoldiring — menejerimiz 24 soat ichida siz bilan bog'lanadi",
+    "secondaryCta": "Funksionallikni ko'rish",
+    "primaryCta": "Demo olish"
   },
   "stats": {
     "heading": "Delever raqamlarda",
@@ -57,7 +61,8 @@
     "highlightsIntegrations": "Agregatorlar, to'lov tizimlari va CRM bilan 40+ tayyor integratsiya",
     "highlightsUptime": "Platformaning 99.9% uzluksiz ishlashi",
     "highlightsSupport": "Barcha bosqichlarda 24/7 qo'llab-quvvatlash",
-    "highlightsLaunch": "Platformani atigi 1 kunda ishga tushirish"
+    "highlightsLaunch": "Platformani atigi 1 kunda ishga tushirish",
+    "eyebrow": "Biznes samaradorligi"
   },
   "geography": {
     "heading": "Faoliyat geografiyasi",
@@ -67,7 +72,8 @@
     "cyprus": "Kipr",
     "georgia": "Gruziya",
     "uae": "BAA",
-    "kyrgyzstan": "Qirg'iziston"
+    "kyrgyzstan": "Qirg'iziston",
+    "eyebrow": "Geografiya"
   },
   "form": {
     "heading": "Konsultatsiya uchun ariza qoldiring",
@@ -107,7 +113,8 @@
   },
   "ctaBottom": {
     "heading": "Restoranni avtomatlashtirishga tayyormisiz?",
-    "subheading": "Ariza qoldiring — platformani demo rejimida ko'rsatamiz va mos tarifni tanlaymiz"
+    "subheading": "Ariza qoldiring — platformani demo rejimida ko'rsatamiz va mos tarifni tanlaymiz",
+    "eyebrow": "Ariza qoldirish"
   },
   "thankYou": {
     "heading": "Arizangiz uchun rahmat!",
@@ -120,5 +127,36 @@
     "contactHeading": "Aloqa",
     "contactCta": "Ariza qoldirish",
     "rights": "Barcha huquqlar himoyalangan"
+  },
+  "trust": {
+    "clientsLabel": "Bizga ishonishadi",
+    "channelsLabel": "Savdo kanallari va integratsiyalar"
+  },
+  "process": {
+    "eyebrow": "Joriy etish jarayoni",
+    "heading": "Atigi 1 kunda ishga tushirish",
+    "subheading": "Delever'ni restoran ishini to'xtatmasdan ulaymiz: savdo kanallari va integratsiyalarni sozlaymiz, jamoani o'qitamiz.",
+    "step1Title": "Ariza va demo",
+    "step1Desc": "Platformani ko'rsatamiz, jarayonlaringizni tahlil qilamiz va mos modullarni tanlaymiz.",
+    "step2Title": "Sozlash va integratsiyalar",
+    "step2Desc": "Sayt, ilova, agregatorlar, kassa va to'lov tizimlarini ulaymiz.",
+    "step3Title": "Jamoani o'qitish",
+    "step3Desc": "Operatorlar, oshxona va kuryerlarni tizimda ishlashga o'rgatamiz.",
+    "step4Title": "Qo'llab-quvvatlash va o'sish",
+    "step4Desc": "24/7 qo'llab-quvvatlash, analitika va savdoni oshirishda yordam."
+  },
+  "faq": {
+    "eyebrow": "Ko'p so'raladigan savollar",
+    "heading": "Nimalarni bilish kerak",
+    "q1": "Delever narxi qancha?",
+    "a1": "Narx filiallar soni va tanlangan modullarga bog'liq. Demodan so'ng menejer shaxsiy taklif tayyorlaydi.",
+    "q2": "Delever'ni mavjud kassa va agregatorlar bilan integratsiya qilish mumkinmi?",
+    "a2": "Ha. Delever'da agregatorlar, to'lov tizimlari va CRM bilan 40 dan ortiq tayyor integratsiya mavjud.",
+    "q3": "Ishga tushirish qancha vaqt oladi?",
+    "a3": "Asosiy ishga tushirish 1 kun oladi. Savdo kanallarini ulaymiz va jamoani restoran ishini to'xtatmasdan o'qitamiz.",
+    "q4": "Bir nechta filiallarni boshqarish mumkinmi?",
+    "a4": "Ha. Barcha filiallar, buyurtmalar va analitika bitta boshqaruv panelida.",
+    "q5": "Texnik yordam bormi?",
+    "a5": "Ha, qo'llab-quvvatlash jamoasi barcha bosqichlarda 24/7 ishlaydi."
   }
 }

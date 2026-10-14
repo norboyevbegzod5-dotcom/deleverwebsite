@@ -77,10 +77,10 @@ export default function LeadForm({ idPrefix, variant = "light" }: Props) {
   };
 
   const isDark = variant === "dark";
-  const labelClass = isDark ? "text-slate-200" : "text-slate-700";
+  const labelClass = isDark ? "text-slate-300" : "text-slate-700";
   const inputClass = `w-full rounded-lg border px-3.5 py-2.5 text-sm outline-none transition focus:ring-2 focus:ring-primary/50 ${
     isDark
-      ? "border-white/15 bg-white/5 text-white placeholder:text-slate-400 focus:border-primary"
+      ? "border-white/10 bg-background text-white placeholder:text-slate-500 focus:border-primary [&>option]:bg-surface"
       : "border-slate-300 bg-white text-slate-900 placeholder:text-slate-400 focus:border-primary"
   }`;
   const errorClass = "mt-1 text-xs text-red-400";
@@ -188,7 +188,7 @@ export default function LeadForm({ idPrefix, variant = "light" }: Props) {
               key={id}
               className={`flex cursor-pointer items-center gap-2 rounded-lg border px-3 py-2 text-sm transition ${
                 isDark
-                  ? "border-white/15 bg-white/5 text-slate-200 hover:border-primary"
+                  ? "border-white/10 bg-background text-slate-300 hover:border-primary"
                   : "border-slate-200 bg-white text-slate-700 hover:border-primary"
               }`}
             >
@@ -220,7 +220,7 @@ export default function LeadForm({ idPrefix, variant = "light" }: Props) {
       <button
         type="submit"
         disabled={status === "submitting"}
-        className="mt-2 inline-flex items-center justify-center gap-2 rounded-lg bg-primary px-6 py-3 text-sm font-semibold text-white transition hover:bg-primary-dark disabled:cursor-not-allowed disabled:opacity-70"
+        className="btn-primary mt-2 px-6 py-3.5 text-sm disabled:cursor-not-allowed disabled:opacity-70"
       >
         {status === "submitting" && <Loader2 className="h-4 w-4 animate-spin" />}
         {status === "submitting" ? t("submitting") : t("submitButton")}
@@ -228,7 +228,7 @@ export default function LeadForm({ idPrefix, variant = "light" }: Props) {
 
       {status === "error" && <p className="text-sm text-red-400">{t("errorMessage")}</p>}
 
-      <p className={`text-xs ${isDark ? "text-slate-400" : "text-slate-500"}`}>{t("privacyNote")}</p>
+      <p className={`text-xs ${isDark ? "text-slate-500" : "text-slate-500"}`}>{t("privacyNote")}</p>
     </form>
   );
 }

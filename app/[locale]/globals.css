@@ -1,18 +1,28 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #0f172a;
-  --primary: #2563eb;
-  --primary-dark: #1d4ed8;
-  --navy: #0b1220;
+  /* Delever brand: navy #002A47, blue #498EF9, green #2FDD8C */
+  --background: #00131f;
+  --foreground: #f1f5f9;
+  --surface: #001e31;
+  --surface-2: #002a47;
+  --muted: #94a3b8;
+  --primary: #2fdd8c;
+  --primary-dark: #22c47a;
+  --brand-blue: #498ef9;
+  --navy: #002a47;
+  --brand-gradient: linear-gradient(90deg, #498ef9, #2fdd8c);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-muted: var(--muted);
   --color-primary: var(--primary);
   --color-primary-dark: var(--primary-dark);
+  --color-brand-blue: var(--brand-blue);
   --color-navy: var(--navy);
   --font-sans: var(--font-inter);
 }
@@ -24,6 +34,7 @@ body {
 
 html {
   scroll-behavior: smooth;
+  color-scheme: dark;
 }
 
 @keyframes marquee {
@@ -37,4 +48,60 @@ html {
 
 .animate-marquee {
   animation: marquee 30s linear infinite;
+}
+
+.eyebrow {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--primary);
+}
+
+@utility bg-brand-gradient {
+  background-image: var(--brand-gradient);
+}
+
+@utility text-gradient {
+  background-image: var(--brand-gradient);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 0.75rem;
+  background-image: var(--brand-gradient);
+  color: var(--navy);
+  font-weight: 600;
+  box-shadow: 0 0 32px -6px rgb(47 221 140 / 0.45);
+  transition: filter 150ms, transform 150ms;
+}
+
+.btn-primary:hover {
+  filter: brightness(1.08);
+}
+
+.btn-primary:active {
+  transform: translateY(1px);
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.75rem;
+  background: var(--surface-2);
+  color: #fff;
+  font-weight: 600;
+  border: 1px solid rgb(255 255 255 / 0.06);
+  transition: background-color 150ms;
+}
+
+.btn-secondary:hover {
+  background: #003559;
 }
