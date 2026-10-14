@@ -76,8 +76,8 @@
     "eyebrow": "Geografiya"
   },
   "form": {
-    "heading": "Konsultatsiya uchun ariza qoldiring",
-    "subheading": "Delever biznesingizni avtomatlashtirish uchun qanday yordam berishini aytib beramiz va shaxsiy taklif tayyorlaymiz",
+    "heading": "Demo olish",
+    "subheading": "Bir daqiqalik savollar — sizga mos yechimni taklif qilamiz.",
     "nameLabel": "Ism",
     "namePlaceholder": "Ismingiz",
     "phoneLabel": "Telefon raqami",
@@ -109,7 +109,15 @@
     "invalidPhoneError": "To'g'ri telefon raqamini kiriting",
     "invalidTelegramError": "Telegram username kiriting, masalan @username",
     "selectOrdersError": "Buyurtmalar sonini tanlang",
-    "selectModuleError": "Kamida bitta modulni tanlang"
+    "selectModuleError": "Kamida bitta modulni tanlang",
+    "back": "Orqaga",
+    "next": "Keyingi",
+    "stepOrders": "Kuniga nechta buyurtma qabul qilasiz?",
+    "stepModules": "Hozir sizda qanday muammolar bor?",
+    "stepModulesHint": "Bir nechtasini tanlash mumkin",
+    "stepRestaurant": "Brendingiz nomi?",
+    "stepName": "Ismingiz?",
+    "stepPhone": "Telefon raqamingiz?"
   },
   "ctaBottom": {
     "heading": "Restoranni avtomatlashtirishga tayyormisiz?",

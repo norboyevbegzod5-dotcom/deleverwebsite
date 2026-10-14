@@ -46,6 +46,21 @@ html {
   }
 }
 
+@keyframes step-in {
+  from {
+    opacity: 0;
+    transform: translateX(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-step-in {
+  animation: step-in 220ms ease-out;
+}
+
 .animate-marquee {
   animation: marquee 30s linear infinite;
 }
